@@ -10,5 +10,5 @@ WORKDIR /app
 COPY --from=builder /go/main guestbook
 COPY public public
 
-EXPOSE 3000
+EXPOSE 8080
 CMD ["./guestbook"]
