@@ -23,11 +23,15 @@ jobs:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASS }}
 
-      - name: Run docker build
-        run: |
-          pwd
-          ls ../..
-          docker build --tag sebkhedim/guestbook:1.0 guestbook/
+  #    - name: Run docker build
+  #      run: docker build --tag sebkhedim/guestbook:1.0 guestbook/
+
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: sebkhedim/guestbook:1.0
+          context: guestbook/
 
 
 
