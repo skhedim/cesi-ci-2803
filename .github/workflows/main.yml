@@ -29,5 +29,11 @@ jobs:
           ls ../..
           docker build ../../guestbook --file Dockerfile --tag sebkhedim/guestbook:1.0
 
+      - name: Run docker build
+        run: |
+          pwd
+          ls ../..
+          docker build --file guestbook/Dockerfile --tag sebkhedim/guestbook:1.0
+
 
 
