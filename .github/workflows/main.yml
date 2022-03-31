@@ -27,7 +27,7 @@ jobs:
         run: |
           pwd
           ls ../..
-          docker build --tag sebkhedim/guestbook:1.0 guestbook/Dockerfile
+          docker build --tag sebkhedim/guestbook:1.0 guestbook/
 
 
 
