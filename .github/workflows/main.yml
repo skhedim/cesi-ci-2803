@@ -24,7 +24,9 @@ jobs:
           password: ${{ secrets.DOCKER_PASS }}
 
   #    - name: Run docker build
-  #      run: docker build --tag sebkhedim/guestbook:1.0 guestbook/
+  #      run: |
+  #        docker build --tag sebkhedim/guestbook:1.0 guestbook/
+  #        docker push sebkhedim/guestbook:1.0
 
       - name: Build and push
         uses: docker/build-push-action@v2
@@ -32,6 +34,13 @@ jobs:
           push: true
           tags: sebkhedim/guestbook:1.0
           context: guestbook/
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
 
 
