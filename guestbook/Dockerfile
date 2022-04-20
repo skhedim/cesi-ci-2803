@@ -1,3 +1,4 @@
+# test
 FROM golang:1.10 as builder
 RUN go get github.com/codegangsta/negroni
 RUN go get github.com/gorilla/mux github.com/xyproto/simpleredis
