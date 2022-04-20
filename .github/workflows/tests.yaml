@@ -20,3 +20,8 @@ jobs:
           target: guestbook/Dockerfile
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Go-Linty
+        uses: ArangoGutierrez/GoLinty-Action@go-1.13rc1-alpine
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
