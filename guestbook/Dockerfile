@@ -5,7 +5,7 @@ RUN go get github.com/gorilla/mux github.com/xyproto/simpleredis
 COPY main.go .
 RUN go build main.go
 
-FROM ubuntu:20.04
+FROM ubuntu
 
 WORKDIR /app
 COPY --from=builder /go/main guestbook
