@@ -26,15 +26,5 @@ jobs:
       - name: Cluster authentication
         run: 'gcloud container clusters get-credentials my-first-cluster-1 --zone us-central1-c --project sandbox-kubernetes-350013'
       
-#      - name: bash deployment
-#        run: kubectl apply -f kube-deployment.yaml -n khedim
-
-      - name: Activate personal namespace
-        uses: okteto/namespace@master
-        with:
-          namespace: khedim
-
-      - name: "Create deployment"
-        uses: okteto/apply@master
-        with:
-          manifest: kube-deployment.yaml
+      - name: bash deployment
+        run: kubectl apply -f kube-deployment.yaml -n khedim
