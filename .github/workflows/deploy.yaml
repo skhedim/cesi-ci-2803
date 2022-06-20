@@ -32,7 +32,7 @@ jobs:
       - name: Activate personal namespace
         uses: okteto/namespace@master
         with:
-          name: khedim
+          namespace: khedim
 
       - name: "Create deployment"
         uses: okteto/apply@master
