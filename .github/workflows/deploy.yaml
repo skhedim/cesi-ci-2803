@@ -1,0 +1,40 @@
+name: Deploy on Kubernetes
+
+on:
+  push:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v3
+
+      - name: GCP authentication
+        id: 'auth'
+        uses: 'google-github-actions/auth@v0'
+        with:
+         credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+
+      - name: Set up Cloud SDK
+        uses: 'google-github-actions/setup-gcloud@v0'
+
+      - name: Cluster authentication
+        run: 'gcloud container clusters get-credentials my-first-cluster-1 --zone us-central1-c --project sandbox-kubernetes-350013'
+      
+#      - name: bash deployment
+#        run: kubectl apply -f kube-deployment.yaml -n khedim
+
+      - name: Activate personal namespace
+        uses: okteto/namespace@master
+        with:
+          name: khedim
+
+      - name: "Create deployment"
+        uses: okteto/apply@master
+        with:
+          manifest: kube-deployment.yaml
