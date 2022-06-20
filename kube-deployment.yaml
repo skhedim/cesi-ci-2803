@@ -4,7 +4,6 @@ metadata:
   name: guestbook-v2
   labels:
     app: guestbook
-    version: "2.0"
 spec:
   selector:
     matchLabels:
@@ -14,7 +13,6 @@ spec:
     metadata:
       labels:
         app: guestbook
-        version: "2.0"
     spec:
       containers:
       - name: guestbook
@@ -34,7 +32,6 @@ metadata:
 spec:
  selector:
    app: guestbook
-   version: "2.0"
  ports:
    - protocol: TCP
      port: 80
@@ -47,7 +44,7 @@ metadata:
   name: guestbook
 spec:
   rules:
-  - host: khedim.35.192.130.95.nip.io
+  - host: khedim.34.122.108.184.nip.io
     http:
       paths:
       - path: /
